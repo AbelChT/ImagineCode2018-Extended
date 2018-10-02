@@ -1,3 +1,0 @@
-/home/abel/CLionProjects/ImagineCode_C++port/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-/home/abel/CLionProjects/ImagineCode_C++port/cmake-build-debug/CMakeFiles/edit_cache.dir
-/home/abel/CLionProjects/ImagineCode_C++port/cmake-build-debug/CMakeFiles/executabl.dir

@@ -1,1 +1,0 @@
-/usr/bin/c++  -g   CMakeFiles/main.cpp.dir/modes/dance/dance.cpp.o CMakeFiles/main.cpp.dir/modes/power/power.cpp.o CMakeFiles/main.cpp.dir/modes/race/race.cpp.o  -o main.cpp 
