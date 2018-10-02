@@ -1,0 +1,1 @@
+/usr/bin/c++  -O0 -save-temps -g -gdwarf-3 -gstrict-dwarf  -rdynamic -mmcu=atmega328p -Wl,--gc-sections -mrelax -Wl,-Map,main.cpp-atmega328p.map CMakeFiles/main.cpp-atmega328p.elf.dir/modes/dance/dance.cpp.o CMakeFiles/main.cpp-atmega328p.elf.dir/modes/power/power.cpp.o CMakeFiles/main.cpp-atmega328p.elf.dir/modes/race/race.cpp.o  -o main.cpp-atmega328p.elf 

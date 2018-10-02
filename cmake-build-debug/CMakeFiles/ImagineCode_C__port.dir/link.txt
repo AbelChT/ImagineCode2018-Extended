@@ -1,0 +1,1 @@
+/usr/bin/c++  -g   CMakeFiles/ImagineCode_C__port.dir/main.cpp.o CMakeFiles/ImagineCode_C__port.dir/modes/dance/dance.cpp.o CMakeFiles/ImagineCode_C__port.dir/modes/race/race.cpp.o CMakeFiles/ImagineCode_C__port.dir/modes/power/power.cpp.o  -o ImagineCode_C__port 

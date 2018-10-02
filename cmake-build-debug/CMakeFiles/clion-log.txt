@@ -1,0 +1,4 @@
+/opt/clion/bin/cmake/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /home/abel/CLionProjects/ImagineCode_C++port
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/abel/CLionProjects/ImagineCode_C++port/cmake-build-debug
