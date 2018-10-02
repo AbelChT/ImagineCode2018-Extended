@@ -1,4 +1,4 @@
-./Makefile
-./cmake-build-debug
-./.idea
-./CMakeLists.txt
+Makefile
+cmake-build-debug
+.idea
+CMakeLists.txt
