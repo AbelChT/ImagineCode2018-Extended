@@ -1,7 +1,7 @@
 #pragma once
 
-#include <pololu/Pololu3pi.h>
-#include "../activity.h"
+#include "../../core/platform_includes.h"
+#include "../../core/activity.h"
 
 class Power : public Activity {
 private:

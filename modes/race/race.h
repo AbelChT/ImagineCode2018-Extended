@@ -1,7 +1,7 @@
 #pragma once
 
-#include <pololu/3pi.h>
-#include "../activity.h"
+#include "../../core/platform_includes.h"
+#include "../../core/activity.h"
 #include "race_type.h"
 #include "between_lines/race_between_lines.h"
 #include "black_line/race_black_line.h"

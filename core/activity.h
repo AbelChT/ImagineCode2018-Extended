@@ -1,11 +1,12 @@
 #pragma once
 
+#include "screen_content.h"
+
 /**
  * This interface represent a mode of execution that can be used.
- */ 
-class Activity
-{
-  public:
+ */
+class Activity : ScreenContent {
+public:
     /**
     * Function executed only first time mode is executed
     */
@@ -15,7 +16,7 @@ class Activity
     * Function executed when mode is stopped and relaunch.
     * If OnSetup is executed, then this will be executed
     */
-    virtual void OnStart() = 0;
+    virtual void OnStart();
 
     /**
     * Function executed when mode is paused an resume ( When someone press the mode assigned key ).
@@ -38,4 +39,17 @@ class Activity
     * Main loop of the mode
     */
     virtual void OnLoop() = 0;
+
+    /**
+     * Check if Activity is finished
+     */
+    bool isFinished();
+
+private:
+    bool finished = true;
+
+    /**
+    * Finish the actual activity
+    */
+    void Finish();
 };
