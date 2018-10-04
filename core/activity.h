@@ -43,7 +43,17 @@ public:
     /**
      * Check if Activity is finished
      */
-    bool isFinished();
+    bool IsFinished();
+
+    /**
+     * Function executed when Button B is pressed
+     */
+    virtual void OnButtonPressedB() = 0;
+
+    /**
+    * Function executed when Button C is pressed
+    */
+    virtual void OnButtonPressedC()= 0;
 
 private:
     bool finished = true;

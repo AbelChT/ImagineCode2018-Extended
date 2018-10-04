@@ -1,75 +1,69 @@
-/*
- * This code will follow a black path between two black lines, using a
- * very simple algorithm.  It demonstrates auto-calibration and use of
- * the 3pi IR sensors, motor control, bar graphs using custom
- * characters, and music playback, making it a good starting point for
- * developing your own more competitive line follower.
+/**
+* Core of the scheduler
+*/
+
+/**
+ * Module that specify the end user
  */
+#include "../main.h"
 
-// The 3pi include file must be at the beginning of any program that
-// uses the Pololu AVR library and 3pi.
-#include <pololu/Pololu3pi.h>
+/**
+ * Splash screen
+ */
+const char msg_splash_screen[] = "Panteras\nManila";
 
-// This include file allows data to be stored in program space.  The
-// ATmega168 has 16k of program space compared to 1k of RAM, so large
-// pieces of static data should be stored in program space.
-#include <avr/pgmspace.h>
+/**
+ * Paused message
+ */
+const char msg_paused[] = "Paused";
 
-// Diferent modules
-#include "../modes/power/power.h"
-#include "../modes/dance/dance.h"
-#include "../modes/race/race.h"
+/**
+ * Selection menu buttons mapping
+ * This buttons are used during the selection of the mode
+ */
+#define BUTTON_MENU_GO_BACK BUTTON_A
+#define BUTTON_MENU_NEXT_MODE BUTTON_B
+#define BUTTON_MENU_SELECT_MODE BUTTON_C
 
-// Introductory messages.  The "PROGMEM" identifier causes the data to
-// go into program space.
-const char msg_panteras[]
-PROGMEM = "Panteras";
-const char msg_manila[]
-PROGMEM = "Manila";
-const char msg_select[]
-PROGMEM = "select";
-const char msg_mode[]
-PROGMEM = "mode";
-const char msg_race[]
-PROGMEM = "race";
-const char msg_dance[]
-PROGMEM = "dance";
-const char msg_power[]
-PROGMEM = "power";
-const char msg_paused[]
-PROGMEM = "Paused";
-const char msg_go[]
-PROGMEM = "Go!";
-const char msg_dancing[]
-PROGMEM = "Dancing";
+/**
+ * In-Mode buttons mapping
+ * This buttons are used during the mode execution
+ */
+#define BUTTON_MENU_PAUSE BUTTON_A
+#define BUTTON_MENU_BUTTON_B BUTTON_B
+#define BUTTON_MENU_BUTTON_C BUTTON_C
 
-// BUTTONS FOR MODES
-#define MODE_RACE_BUTTON BUTTON_A
-#define MODE_DANCE_BUTTON BUTTON_B
-#define MODE_POWER_BUTTON BUTTON_C
+/**
+ * Pause buttons mapping
+ * This buttons are used during the pause mode
+ */
+#define BUTTON_PAUSE_RESUME BUTTON_A
+#define BUTTON_PAUSE_REESTART BUTTON_B
+#define BUTTON_PAUSE_MAIN_MENU BUTTON_C
 
+// TODO: LAST FILE TO END
 
 // Data for generating the characters used in load_custom_characters
 // and display_readings.  By reading levels[] starting at various
 // offsets, we can generate all of the 7 extra characters needed for a
 // bargraph.  This is also stored in program space.
 const char levels[]
-PROGMEM = {
-        0b00000,
-        0b00000,
-        0b00000,
-        0b00000,
-        0b00000,
-        0b00000,
-        0b00000,
-        0b11111,
-        0b11111,
-        0b11111,
-        0b11111,
-        0b11111,
-        0b11111,
-        0b11111
-};
+        PROGMEM = {
+                0b00000,
+                0b00000,
+                0b00000,
+                0b00000,
+                0b00000,
+                0b00000,
+                0b00000,
+                0b11111,
+                0b11111,
+                0b11111,
+                0b11111,
+                0b11111,
+                0b11111,
+                0b11111
+        };
 
 // This function loads custom characters into the LCD.  Up to 8
 // characters can be loaded; we use them for 7 levels of a bar graph.
@@ -86,7 +80,7 @@ void load_custom_characters() {
 
 // Initializes the 3pi, displays a welcome message, calibrates, and
 // plays the initial music.
-void initialize(Pololu3pi& device) {
+void initialize(Pololu3pi &device) {
     // This must be called at the beginning of 3pi code, to set up the
     // sensors.  We use a value of 2000 for the timeout, which
     // corresponds to 2000*0.4 us = 0.8 ms on our 20 MHz processor.
@@ -116,14 +110,14 @@ void display_message_centred(const char line1[]) {
     OrangutanLCD::printFromProgramSpace(line1);
 }
 
-Pololu3pi* init(){
+Pololu3pi *init() {
     //TODO:
 }
 
 
 // This is the main function, where the code starts.  All C programs
 // must have a main() function defined somewhere.
-int launch(Screen screen) {
+int main() {
     Pololu3pi device;
     // set up the 3pi
     initialize(device);

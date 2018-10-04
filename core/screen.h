@@ -4,9 +4,9 @@
 
 class Screen {
 private:
-    char title[];
+    const char title[];
     ScreenContentType type;
     ScreenContent screenContent;
 public:
-    Screen(char *title, const ScreenContent &screenContent, ScreenContentType type);
+    Screen(const char *title, const ScreenContent &screenContent, ScreenContentType type);
 };

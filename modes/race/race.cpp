@@ -14,6 +14,10 @@ void Race::OnSetup() {
  * If on_mode_create is executed, then this will be executed
  */
 void Race::OnStart() {
+    const char msg_go[] = "Go!";
+    // WARNING: This may cause problems
+    OrangutanLCD::printFromProgramSpace(msg_go);
+
     // Calibrate the sensors to detect the zone
     unsigned int *maximum = device->getLineSensorsCalibratedMaximumOn();
     maximum[0] = 2000;
@@ -36,7 +40,6 @@ void Race::OnStart() {
         this->selectedRaceMode = &raceBetween;
     else
         this->selectedRaceMode = &raceBlack;
-
 }
 
 /**
@@ -67,5 +70,13 @@ void Race::OnStop() {
  */
 void Race::OnLoop() {
     this->selectedRaceMode->OnLoop();
+
+}
+
+void Race::OnButtonPressedB() {
+
+}
+
+void Race::OnButtonPressedC() {
 
 }

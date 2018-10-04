@@ -19,7 +19,7 @@ virtual void Activity::OnStop() {
 /**
  * Check if Activity is finished
  */
-bool Activity::isFinished() {
+bool Activity::IsFinished() {
     return this->finished;
 }
 

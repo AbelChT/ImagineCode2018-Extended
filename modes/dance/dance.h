@@ -45,4 +45,8 @@ public:
     * Main loop of the mode
     */
     void OnLoop() override;
+
+    void OnButtonPressedB() override;
+
+    void OnButtonPressedC() override;
 };

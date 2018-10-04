@@ -1,17 +1,5 @@
 #include "dance.h"
-/*
-* buzzer1: for the Orangutan LV/SV-xx8
-*
-* Uses the OrangutanBuzzer library to play a series of notes on the
-* Orangutan's buzzer.  It also uses the OrangutanLCD library to
-* display the notes its playing, and it uses the OrangutanPushbuttons
-* library to allow the user to stop/reset the melody with the top
-* pushbutton.
-*
-* http://www.pololu.com/docs/0J20/6.d
-* http://www.pololu.com
-* http://forum.pololu.com
-*/
+#include "choreography_step.h"
 
 #define MELODY_LENGTH 203
 #define NOTE_C4  262
@@ -143,16 +131,16 @@ const unsigned int duration[MELODY_LENGTH] =
         };
 
 /*
-* Choreography that our bug dance
+* Choreography that you prepare for your bug
 */
 #define choreography_size 6
-const int choreography[choreography_size][choreography_size] = {
-        {40,  40,  1000},
-        {20,  50,  500},
-        {-20, 20,  700},
-        {20,  -20, 700},
-        {-20, -50, 500},
-        {-40, -40, 1000}
+const ChoreographyStep choreography[choreography_size] = {
+        ChoreographyStep(40, 40, 1000),
+        ChoreographyStep(20, 50, 500),
+        ChoreographyStep(-20, 20, 700),
+        ChoreographyStep(20, -20, 700),
+        ChoreographyStep(-20, -50, 500),
+        ChoreographyStep(-40, -40, 1000)
 };
 
 /**
@@ -167,6 +155,11 @@ void Dance::OnSetup() {
 * If on_mode_create is executed, then this will be executed
 */
 void Dance::OnStart() {
+    const char msg_dancing[]
+            PROGMEM = "Dancing";
+    // WARNING: This may cause problems
+    OrangutanLCD::printFromProgramSpace(msg_dancing);
+
     this->currentIdx_ = 0;
     this->current_choreography_step_ = 5;
 }
@@ -210,10 +203,19 @@ void Dance::OnLoop() {
         this->currentIdx_ = 0;
     }
 
-    if (OrangutanTime::ms() - this->last_execution_timestamp_ > choreography[this->current_choreography_step_][2]) {
+    if (OrangutanTime::ms() - this->last_execution_timestamp_ >
+        choreography[this->current_choreography_step_].getDurationMs()) {
         this->last_execution_timestamp_ = OrangutanTime::ms();
         this->current_choreography_step_ = (this->current_choreography_step_ + 1) % choreography_size;
-        OrangutanMotors::setSpeeds(choreography[this->current_choreography_step_][0],
-                                   choreography[this->current_choreography_step_][1]);
+        OrangutanMotors::setSpeeds(choreography[this->current_choreography_step_].getLeftEngine(),
+                                   choreography[this->current_choreography_step_].getRightEngine());
     }
+}
+
+void Dance::OnButtonPressedB() {
+
+}
+
+void Dance::OnButtonPressedC() {
+
 }

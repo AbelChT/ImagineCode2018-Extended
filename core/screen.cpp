@@ -4,6 +4,6 @@
 
 #include "screen.h"
 
-Screen::Screen(char *title, const ScreenContent &screenContent, ScreenContentType type) : title(title), type(type),
+Screen::Screen(const char *title, const ScreenContent &screenContent, ScreenContentType type) : title(title), type(type),
                                                                                           screenContent(
                                                                                                   screenContent) {}

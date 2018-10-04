@@ -8,9 +8,8 @@
 
 class Race : public Activity {
 private:
-    RaceType *selectedRaceMode;
     Pololu3pi *device;
-
+    RaceType *selectedRaceMode;
     RaceBlack raceBlack;
     RaceBetween raceBetween;
 
@@ -50,4 +49,8 @@ public:
     * Main loop of the mode
     */
     void OnLoop() override;
+
+    void OnButtonPressedB() override;
+
+    void OnButtonPressedC() override;
 };

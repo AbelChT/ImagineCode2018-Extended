@@ -49,3 +49,11 @@ void Power::OnLoop() {
         OrangutanLCD::print("mV");
     }
 }
+
+void Power::OnButtonPressedB() {
+
+}
+
+void Power::OnButtonPressedC() {
+
+}
