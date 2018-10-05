@@ -8,11 +8,6 @@
 class Activity : ScreenContent {
 public:
     /**
-    * Function executed only first time mode is executed
-    */
-    virtual void OnSetup() = 0;
-
-    /**
     * Function executed when mode is stopped and relaunch.
     * If OnSetup is executed, then this will be executed
     */
@@ -61,5 +56,5 @@ private:
     /**
     * Finish the actual activity
     */
-    void Finish();
+    void Finish() ;
 };

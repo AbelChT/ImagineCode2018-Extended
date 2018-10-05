@@ -14,11 +14,6 @@ private:
 
 public:
     /**
-    * Function executed only first time mode is executed
-    */
-    void OnSetup() override;
-
-    /**
     * Function executed when mode is stopped and relaunch.
     * If OnSetup is executed, then this will be executed
     */

@@ -3,13 +3,6 @@
 Race::Race(Pololu3pi *device) : device(device), raceBlack(RaceBlack(device)), raceBetween(RaceBetween(device)) {}
 
 /**
- * Function executed only first time mode is executed
- */
-void Race::OnSetup() {
-    // Nothing to do
-}
-
-/**
  * Function executed when mode is stopped and relaunch.
  * If on_mode_create is executed, then this will be executed
  */

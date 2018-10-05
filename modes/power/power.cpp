@@ -1,13 +1,6 @@
 #include "power.h"
 
 /**
- * Function executed only first time mode is executed
- */
-void Power::OnSetup() {
-    // Nothing to do
-}
-
-/**
  * Function executed when mode is stopped and relaunch.
  * If on_mode_create is executed, then this will be executed
  */

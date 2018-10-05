@@ -144,13 +144,6 @@ const ChoreographyStep choreography[choreography_size] = {
 };
 
 /**
-* Function executed only one time to setup before any one
-*/
-void Dance::OnSetup() {
-    // Nothing to do
-}
-
-/**
 * Function executed when mode is stopped and relaunch.
 * If on_mode_create is executed, then this will be executed
 */
